@@ -29,13 +29,16 @@
         private void InitializeComponent()
         {
             this.rtbLog = new System.Windows.Forms.RichTextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupCpu = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblServerStatus = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblServerPort = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lblServerIp = new System.Windows.Forms.Label();
+            this.chkCpuEnable = new System.Windows.Forms.CheckBox();
+            this.chkFrequency = new System.Windows.Forms.CheckBox();
+            this.groupCpu.SuspendLayout();
             this.SuspendLayout();
             // 
             // rtbLog
@@ -50,14 +53,16 @@
             this.rtbLog.TabIndex = 0;
             this.rtbLog.Text = "";
             // 
-            // groupBox1
+            // groupCpu
             // 
-            this.groupBox1.Location = new System.Drawing.Point(12, 93);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(339, 91);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "CPU";
+            this.groupCpu.Controls.Add(this.chkFrequency);
+            this.groupCpu.Controls.Add(this.chkCpuEnable);
+            this.groupCpu.Location = new System.Drawing.Point(12, 55);
+            this.groupCpu.Name = "groupCpu";
+            this.groupCpu.Size = new System.Drawing.Size(339, 70);
+            this.groupCpu.TabIndex = 1;
+            this.groupCpu.TabStop = false;
+            this.groupCpu.Text = "CPU";
             // 
             // label1
             // 
@@ -113,6 +118,26 @@
             this.lblServerIp.TabIndex = 7;
             this.lblServerIp.Text = "?";
             // 
+            // chkCpuEnable
+            // 
+            this.chkCpuEnable.AutoSize = true;
+            this.chkCpuEnable.Location = new System.Drawing.Point(15, 19);
+            this.chkCpuEnable.Name = "chkCpuEnable";
+            this.chkCpuEnable.Size = new System.Drawing.Size(59, 17);
+            this.chkCpuEnable.TabIndex = 0;
+            this.chkCpuEnable.Text = "Enable";
+            this.chkCpuEnable.UseVisualStyleBackColor = true;
+            // 
+            // chkFrequency
+            // 
+            this.chkFrequency.AutoSize = true;
+            this.chkFrequency.Location = new System.Drawing.Point(15, 42);
+            this.chkFrequency.Name = "chkFrequency";
+            this.chkFrequency.Size = new System.Drawing.Size(76, 17);
+            this.chkFrequency.TabIndex = 1;
+            this.chkFrequency.Text = "Frequency";
+            this.chkFrequency.UseVisualStyleBackColor = true;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -124,7 +149,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblServerStatus);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupCpu);
             this.Controls.Add(this.rtbLog);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -132,6 +157,8 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "OHM Mini Server";
+            this.groupCpu.ResumeLayout(false);
+            this.groupCpu.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -140,13 +167,15 @@
         #endregion
 
         public System.Windows.Forms.RichTextBox rtbLog;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupCpu;
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.Label lblServerStatus;
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.Label lblServerPort;
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.Label lblServerIp;
+        private System.Windows.Forms.CheckBox chkFrequency;
+        private System.Windows.Forms.CheckBox chkCpuEnable;
     }
 }
 

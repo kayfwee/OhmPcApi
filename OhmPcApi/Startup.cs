@@ -18,6 +18,8 @@ namespace OhmPcApi
         // parameter in the WebApp.Start method.
         public void Configuration(IAppBuilder appBuilder)
         {
+            OhmService.Initialise();
+
             LogService.Log("Starting web API...");
 
             try

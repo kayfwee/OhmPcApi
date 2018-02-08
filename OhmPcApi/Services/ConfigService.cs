@@ -26,6 +26,7 @@ namespace OhmPcApi.Services
             set
             {
                 config = value;
+                SaveConfigToFile();
             }
         }
 

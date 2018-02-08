@@ -12,13 +12,11 @@ namespace OhmPcApi.Controllers
     [RoutePrefix("api/main")]
     public class MainController : ApiController
     {
-        private OhmService service = new OhmService();
-
         [HttpGet]
         [Route("")]
         public SystemStatus GetSystemStatus()
         {
-            SystemStatus status = service.GetUpdatedSystemStatus();
+            SystemStatus status = OhmService.GetUpdatedSystemStatus();
             return status;
         }
     }

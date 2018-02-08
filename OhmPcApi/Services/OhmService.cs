@@ -1,21 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using OpenHardwareMonitor.Hardware;
 using OhmPcApi.Models;
+using OhwPcApi.Common;
 
 namespace OhmPcApi.Services
 {
-    public class OhmService
+    public static class OhmService
     {
-        private Computer computer;
+        private static Computer computer;
+        private static UpdateVisitor visitor;
 
-        public OhmService()
+        public static void Initialise()
         {
             try
             {
+                visitor = new UpdateVisitor();
                 computer = new Computer();
                 computer.CPUEnabled = true;
                 computer.MainboardEnabled = true;
@@ -30,8 +30,14 @@ namespace OhmPcApi.Services
             }
         }
 
-        public SystemStatus GetUpdatedSystemStatus()
+        private static void Refresh()
         {
+            computer.Accept(visitor);
+        }
+
+        public static SystemStatus GetUpdatedSystemStatus()
+        {
+            Refresh();
             SystemStatus status = new SystemStatus();
 
             try
@@ -48,8 +54,9 @@ namespace OhmPcApi.Services
             return status;
         }
 
-        private CpuStatus GetCpuStatuses(IHardware cpu)
+        private static CpuStatus GetCpuStatuses(IHardware cpu)
         {
+            Refresh();
             CpuStatus status = new CpuStatus();
             if (cpu == null) return status;
 
@@ -65,8 +72,9 @@ namespace OhmPcApi.Services
             return status;
         }
 
-        private GpuStatus GetGpuStatuses(IHardware gpu)
+        private static GpuStatus GetGpuStatuses(IHardware gpu)
         {
+            Refresh();
             GpuStatus status = new GpuStatus();
             if (gpu == null) return status;
 
